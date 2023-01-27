@@ -37,4 +37,43 @@ public class CarInspectionServiceTest {
         Assertions.assertFalse(testInspectionService.testSeatBelts(carNoSeatBelt));
 
     }
+
+    @Test
+    void carHasAirbag() {
+        Car carAirbag = new Car();
+        carAirbag.setAirbag(true);
+        Assertions.assertTrue(testInspectionService.testAirbag(carAirbag));
+    }
+
+    @Test
+    void carHasNoAirbag() {
+        Car carNoAirbag = new Car();
+        carNoAirbag.setSeatBelt(false);
+        Assertions.assertFalse(testInspectionService.testAirbag(carNoAirbag));
+    }
+
+    @Test
+    void carHasFiveDoors() {
+        Car carFiveDoors = new Car();
+        carFiveDoors.setNumberOfDoors(5);
+        Assertions.assertTrue(testInspectionService.testDoors(carFiveDoors));
+    }
+
+    @Test
+    void carHasNoFiveDoors() {
+        Car carThreeDoors = new Car();
+        carThreeDoors.setNumberOfDoors(3);
+        Assertions.assertFalse(testInspectionService.testDoors(carThreeDoors));
+    }
+    @Test
+    void carCheckAll() {
+        Car carCheckAll = new Car(4, 5, true, true);
+        Assertions.assertTrue(testInspectionService.testAll(carCheckAll));
+    }
+    @Test
+    void carCheckAllTireFailure() {
+        Car carCheckAll = new Car(6, 5, true, true);
+        Assertions.assertFalse(testInspectionService.testAll(carCheckAll));
+    }
 }
+
