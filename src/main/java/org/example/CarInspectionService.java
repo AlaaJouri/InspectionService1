@@ -10,4 +10,13 @@ if (testCar.getNumberOfTires() == 4) {
 }
 
     }
+
+
+    public boolean testSeatBelts(Car carSeatBelt) {
+        if(carSeatBelt.isSeatBelt() == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

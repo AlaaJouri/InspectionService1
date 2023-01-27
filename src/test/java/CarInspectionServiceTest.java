@@ -7,13 +7,13 @@ public class CarInspectionServiceTest {
     CarInspectionService testInspectionService = new CarInspectionService();
 
 
-@Test
+    @Test
     void carHasFourWheels() {
-    Car carFourWheels = new Car();
-    carFourWheels.setNumberOfTires(4);
-    Assertions.assertTrue(testInspectionService.testNumberOfTires(carFourWheels));
+        Car carFourWheels = new Car();
+        carFourWheels.setNumberOfTires(4);
+        Assertions.assertTrue(testInspectionService.testNumberOfTires(carFourWheels));
 
-}
+    }
 
     @Test
     void carHasNotFourWheels() {
@@ -22,5 +22,19 @@ public class CarInspectionServiceTest {
         Assertions.assertFalse(testInspectionService.testNumberOfTires(carTwoWheels));
     }
 
+    @Test
+    void carHasSeatBelts() {
+        Car carSeatBelt = new Car();
+        carSeatBelt.setSeatBelt(true);
+        Assertions.assertTrue(testInspectionService.testSeatBelts(carSeatBelt));
 
+    }
+
+    @Test
+    void carHasNoSeatBelts() {
+        Car carNoSeatBelt = new Car();
+        carNoSeatBelt.setSeatBelt(false);
+        Assertions.assertFalse(testInspectionService.testSeatBelts(carNoSeatBelt));
+
+    }
 }
